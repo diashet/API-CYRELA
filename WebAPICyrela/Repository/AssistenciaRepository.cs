@@ -13,7 +13,6 @@ namespace WebAPICyrela.Repository
 
         public AssistenciaRepository()
         {
-            // Criando um instância da classe de contexto do EntityFramework
             context = new DataBaseContext();
         }
 
@@ -36,10 +35,7 @@ namespace WebAPICyrela.Repository
 
         public void Alterar(Assistencia assistencia)
         {
-
             context.Assistencia.Update(assistencia);
-
-
             context.SaveChanges();
         }
 
