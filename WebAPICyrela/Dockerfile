@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["WebAPICyrela/WebAPICyrela.csproj", "WebAPICyrela/"]
-RUN dotnet restore "WebAPICyrela/WebAPICyrela.csproj"
+COPY *.csproj ./
+RUN dotnet restore "WebAPICyrela.csproj"
 COPY . .
-WORKDIR "/src/WebAPICyrela"
+WORKDIR "/src"
 RUN dotnet build "WebAPICyrela.csproj" -c Release -o /app/build
 
 FROM build AS publish
